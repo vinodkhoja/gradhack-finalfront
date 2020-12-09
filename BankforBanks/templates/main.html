@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<body class="pt-0 pb-0 flex-column h-auto">
+<img src="{% static 'img/base.png' %}" class="base mb-auto">
+	<div class="container d-flex flex-column h-100">
+        <h2 class="title mt-0 mb-4">Hello, Mr.User</h2>
+        <!-- <h5>Your Accounts</h5> -->
+        <img src="{% static 'img/icon.png' %}" class="acc-img">
+        <div id="control-group">
+            <div id="accounts">
+                <a class="btn btn-lg btn-block signin-btn mt-4" href="{% url 'accounts' %}">ACCOUNTS</a>
+            </div>
+            <div id="stats">
+                <a class="btn btn-lg btn-block signin-btn mt-4"  href="{% url 'bank_stats' %}">STATEMENTS</a>
+            </div>
+            <div id="analysis">
+                <a class="btn btn-lg btn-block signin-btn mt-4"  href="{% url 'analysis' %}">SPENDINGS ANALYSIS</a>
+            </div>
+            <div id="logout">
+                <a class="btn btn-lg btn-block signin-btn mt-4"  href="{% url 'log_out' %}">SECURE LOGOUT</a>
+            </div>
+        </div>
+    </div>
+<div style="height: 87px;"></div>
+<ul class="nav nav-pills w-100 justify-content-around mt-auto" id="nav-bar">
+    <li class="nav-item">
+        <a class="nav-link active d-flex flex-column align-items-center" href="{% url 'main' %}">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+            </svg>
+            <span class="nav-text">
+                Home
+            </span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link d-flex flex-column align-items-center" href="{% url 'accounts' %}">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-wallet-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
+            </svg>
+            <span class="nav-text">
+                Accounts
+            </span>
+        </a>
+    </li>  
+    <li class="nav-item">
+        <a class="nav-link d-flex flex-column align-items-center" href="{% url 'bank_stats' %}">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path fill-rule="evenodd" d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"/>
+                <circle cx="3.5" cy="5.5" r=".5"/>
+                <circle cx="3.5" cy="8" r=".5"/>
+                <circle cx="3.5" cy="10.5" r=".5"/>
+            </svg> 
+            <span class="nav-text">
+                Statement
+            </span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link d-flex flex-column align-items-center" href="{% url 'analysis' %}">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clipboard-data" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                <path fill-rule="evenodd" d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
+            </svg>
+            <span class="nav-text">
+                Analysis
+            </span>
+        </a>
+    </li>
+        <li class="nav-item">
+        <a class="nav-link d-flex flex-column align-items-center" href="#">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+                <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+                </svg>
+            <span class="nav-text">
+                Profile
+            </span>
+        </a>
+    </li>
+</ul>
+</body>
+
+<style>
+@font-face {
+    font-family: 'Comfortaa';
+    src: url("{% static 'font/comfortaa/Comfortaa-Regular.ttf' %}");
+    font-weight: normal;
+    font-style: normal;
+}
+
+#stats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("{% static 'img/stats.png' %}");
+    width: 100%;
+    height: 15rem;
+}
+#analysis{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("{% static 'img/analysis.png' %}");
+    width: 100%;
+    height: 15rem;
+}
+#accounts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("{% static 'img/accounts.png' %}");
+    width: 100%;
+    height: 15rem;
+}
+#logout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("{% static 'img/logout.png' %}");
+    width: 100%;
+    height: 15rem;
+}
+#control-group a{
+    width: 83%;
+    margin-top: auto !important;
+    margin-bottom: 1.5rem;
+}
+
+.signin-btn{
+background: #b9392e;
+border: 1px solid white;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 14px;
+color: white !important;
+}
+
+.title{
+	/* Log in */
+
+font-family: Comfortaa !important;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 40px;
+/* display: flex; */
+/* align-items: center; */
+letter-spacing: -0.015em;
+
+color: #000000;
+}
+
+button:hover{
+	background: white;
+	color: black;
+}
+button:active{
+	color: white !important;
+}
+
+.acc-img{
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+</style>
+
+{% endblock main %}
